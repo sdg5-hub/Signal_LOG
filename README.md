@@ -1,7 +1,7 @@
 # SIGNAL LOG
 
 SIGNAL LOG is an original deep-space themed guestbook web app where visitors submit short "transmissions" that appear in a live scrolling log. It is built with Express + SQLite and plain HTML/CSS/JS, with anti-spam protections and moderation tools.
-SIGNAL_LOG is live at: https://signal-log.onrender.com (takes 30-40 seconds to load)
+SIGNAL_LOG is live at: https://signal-log.onrender.com (may take 30-40 seconds to load)
 ## Features
 
 - Original deep-space receiver visual identity (deep navy, neon cyan, magenta accents)
