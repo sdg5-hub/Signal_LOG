@@ -73,7 +73,7 @@ npm run dev
 npm start
 ```
 
-App runs at: [http://localhost:3000](http://localhost:3000)
+App runs at: [ https://signal-log.onrender.com ]( https://signal-log.onrender.com )
 
 ## Environment Variables
 
@@ -155,29 +155,13 @@ GitHub Pages cannot host this app because it only serves static files and cannot
 
 Use one of these options:
 
-### Option A: Render.com
+### Option: Render.com
 
 - Create a new Web Service from your repo
 - Build command: `npm install`
 - Start command: `npm start`
 - Add env vars: `PORT`, `ADMIN_TOKEN`
 - Attach persistent disk for SQLite file retention
-
-### Option B: Fly.io
-
-- Create app with `fly launch`
-- Deploy with `fly deploy`
-- Start command: `npm start`
-- Configure volume for SQLite persistence
-- Set secrets: `fly secrets set ADMIN_TOKEN=...`
-
-### Option C: Railway
-
-- New project from GitHub repo
-- Build: `npm install`
-- Start: `npm start`
-- Add env vars in Railway dashboard
-- Enable persistent storage for SQLite database
 
 ## Security
 
