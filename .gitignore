@@ -1,0 +1,5 @@
+node_modules/
+.env
+signal-log.db
+npm-debug.log*
+.DS_Store

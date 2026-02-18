@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIGNAL LOG</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="background-grid" aria-hidden="true"></div>
+    <main class="shell">
+      <header class="site-header">
+        <h1>SIGNAL LOG</h1>
+        <p class="subhead">
+          Deep-space receiver online. Transmissions are logged and archived.<br />
+          Keep your signal clear and your payload human.
+        </p>
+      </header>
+
+      <section class="layout">
+        <aside class="card panel-left">
+          <h2>Transmit</h2>
+          <form id="transmission-form" novalidate>
+            <label class="field-label" for="callsign">Callsign <span>(optional)</span></label>
+            <input id="callsign" name="callsign" class="input" maxlength="24" placeholder="Nomad-7" />
+
+            <label class="field-label" for="origin">Origin <span>(optional)</span></label>
+            <input
+              id="origin"
+              name="origin"
+              class="input"
+              maxlength="32"
+              placeholder="Earth / NYC / Unknown / Europa"
+            />
+
+            <label class="field-label" for="message">Message</label>
+            <textarea id="message" name="message" class="textarea" maxlength="300" required></textarea>
+            <div class="message-meta">
+              <span id="message-hint">Max 300 chars. Signal clarity improves with useful text.</span>
+              <span id="char-counter">0/300</span>
+            </div>
+
+            <div id="human-check-wrap" class="human-check-wrap">
+              <label class="field-label" for="human-answer">Human check</label>
+              <div class="human-row">
+                <span id="human-question" class="human-question">Loading challenge...</span>
+                <input id="human-answer" name="humanAnswer" class="input" inputmode="numeric" maxlength="16" />
+                <button id="refresh-human" class="btn btn-secondary" type="button">New</button>
+              </div>
+            </div>
+
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true" />
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Transmit</button>
+              <button class="btn btn-secondary" type="reset">Clear</button>
+            </div>
+            <p id="form-error" class="error-text" role="alert"></p>
+          </form>
+
+          <div class="filters">
+            <h3>Filters</h3>
+            <div class="chips" id="filter-chips">
+              <button type="button" class="chip active" data-filter="all">ALL</button>
+              <button type="button" class="chip" data-filter="earth">EARTH</button>
+              <button type="button" class="chip" data-filter="unknown">UNKNOWN</button>
+              <button type="button" class="chip" data-filter="custom">CUSTOM</button>
+            </div>
+            <input id="custom-origin" class="input hidden" placeholder="Type origin substring" maxlength="64" />
+            <input id="search" class="input" type="search" placeholder="Search message text" />
+          </div>
+        </aside>
+
+        <section class="card panel-right">
+          <div class="feed-head">
+            <h2>Live Log</h2>
+            <button id="refresh" class="btn btn-secondary" type="button">Refresh</button>
+          </div>
+          <div id="log-feed" class="log-feed"></div>
+          <p id="empty-state" class="empty-state hidden">No transmissions yet. Be the first to transmit.</p>
+          <div class="pagination-row">
+            <button id="load-more" class="btn btn-secondary" type="button">Load more</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div id="toast-root" class="toast-root" aria-live="polite"></div>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
